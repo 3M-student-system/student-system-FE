@@ -1,14 +1,21 @@
-import React from 'react';
-import * as S from './HeaderBase.style';
-import logoImg from '../../assets/img/React-logo-1.png';
-function HeaderBase() {
+import React from "react";
+import * as S from "./HeaderBase.style";
+function HeaderBase({ color }) {
   return (
-    <S.Header>
-      <S.Logo src={logoImg} alt="logo" />
-      <S.Actions>
-        <S.StyledLink to="/">Home</S.StyledLink>
-        <S.StyledLink to="/about">About</S.StyledLink>
-      </S.Actions>
+    <S.Header color={color}>
+      <S.HeaderWrapper>
+        <S.TitleBar>
+          <S.Title color={color}>Student attendance system</S.Title>
+        </S.TitleBar>
+        <S.NavBar>
+          <S.StyledLink color={color} to="/">
+            Register
+          </S.StyledLink>
+          <S.StyledLink color={color} to="/about">
+            View
+          </S.StyledLink>
+        </S.NavBar>
+      </S.HeaderWrapper>
     </S.Header>
   );
 }
