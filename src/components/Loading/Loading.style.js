@@ -14,7 +14,7 @@ export const Loader = styled.div`
   }
 
   & {
-    color: #000;
+    color: ${(props) => props.theme.secondary.background};
     font-size: 10px;
     margin: 80px auto;
     position: relative;
