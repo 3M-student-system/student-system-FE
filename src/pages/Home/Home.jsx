@@ -1,16 +1,23 @@
 import React from 'react';
-import { Button, Section } from '../../components';
-
+import { Section, StudentCard } from '../../components';
+import students from '../../Utils/students';
+import * as S from './Home.style';
 function Home() {
   return (
     <>
-      <Section fullWidth={true} background="888">
-        Welcome to your React boilerplate!
-      </Section>
-      <Section fullWidth={false} background="">
-        <Button color="primary" handleClick={() => alert('Hello')}>
-          Click Me
-        </Button>
+      <Section>
+        <S.FlexDiv>
+          {students &&
+            students.map((student) => (
+              <StudentCard
+                key={student.id}
+                name={student.name}
+                surname={student.surname}
+                image={student.image}
+                handleClick={() => window.confirm('Please confirm')}
+              />
+            ))}
+        </S.FlexDiv>
       </Section>
     </>
   );
