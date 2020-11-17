@@ -51,4 +51,5 @@ export const Email = styled.p`
 
 export const TextDiv = styled.div`
   margin-top: 1em;
+  word-wrap: break-word;
 `;
