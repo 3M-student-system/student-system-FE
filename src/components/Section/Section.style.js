@@ -6,6 +6,6 @@ export const Container = styled.div`
 `;
 
 export const Section = styled.section`
-  background: #${(props) => props.background};
+  background: ${(props) => props.theme.primary.background};
   padding: 1em 2em;
 `;
