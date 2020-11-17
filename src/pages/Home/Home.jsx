@@ -35,6 +35,7 @@ function Home() {
                   name={student.name}
                   surname={student.surname}
                   image={student.image}
+                  email={student.email}
                   handleClick={() => window.confirm('Please confirm')}
                 />
               ))
@@ -50,6 +51,20 @@ function Home() {
   return (
     <>
       <Section>
+        <S.FlexDiv>
+          {students &&
+            students.map((student) => (
+              <StudentCard
+                key={student.id}
+                name={student.name}
+                surname={student.surname}
+                image={student.image}
+                email={student.email}
+                handleClick={() => window.confirm('Please confirm')}
+              />
+            ))}
+        </S.FlexDiv>
+
         <Hero disabled={disabled} />
       </Section>
     </>

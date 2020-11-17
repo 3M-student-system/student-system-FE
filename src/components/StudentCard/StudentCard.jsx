@@ -1,15 +1,16 @@
 import React from 'react';
 import * as S from './StudentCard.style';
-function StudentCard({ image, name, surname, handleClick }) {
+function StudentCard({ image, name, surname, email, handleClick }) {
   const fullName = name + ' ' + surname;
   return (
     <S.Card onClick={handleClick}>
       <S.ImgDiv>
         <S.Image src={image} alt={fullName} />
       </S.ImgDiv>
-      <div>
+      <S.TextDiv>
         <S.Name>{fullName}</S.Name>
-      </div>
+        <S.Email>{email}</S.Email>
+      </S.TextDiv>
     </S.Card>
   );
 }
