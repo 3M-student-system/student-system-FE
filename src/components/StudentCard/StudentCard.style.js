@@ -33,10 +33,22 @@ export const Image = styled.img`
 export const Name = styled.h3`
   text-align: center;
   font-size: 1.1em;
-  padding: 1em;
+  margin: 0;
+
   color: ${(props) => props.theme.primary.color};
 
   &&:hover {
     text-decoration: underline;
   }
+`;
+export const Email = styled.p`
+  text-align: center;
+  font-size: 0.8em;
+  color: ${(props) => props.theme.primary.color};
+  opacity: 0.8;
+  margin: 0.3em 0;
+`;
+
+export const TextDiv = styled.div`
+  margin-top: 1em;
 `;

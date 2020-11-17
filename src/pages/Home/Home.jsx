@@ -14,6 +14,7 @@ function Home() {
                 name={student.name}
                 surname={student.surname}
                 image={student.image}
+                email={student.email}
                 handleClick={() => window.confirm('Please confirm')}
               />
             ))}
