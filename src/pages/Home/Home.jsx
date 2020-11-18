@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Section, StudentCard, Hero, Loading, Button } from '../../components';
-import * as S from './Home.style';
-import { useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Section, StudentCard, Hero, Loading, Button } from "../../components";
+import * as S from "./Home.style";
+import { useHistory } from "react-router-dom";
 
 function sendAttendency(history, setError, studentId) {
   fetch(`${process.env.REACT_APP_SERVER_URL}/add-attendency`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({ studentId: studentId }),
   })
@@ -15,7 +15,7 @@ function sendAttendency(history, setError, studentId) {
       if (data.status === 400) {
         setError(true);
       } else {
-        history.push('/view');
+        history.push("/view");
       }
     })
     .catch((err) => console.log(err));
@@ -28,14 +28,14 @@ function Home() {
   const date = new Date();
   let disabled = true;
   const history = useHistory();
-  let upcomingLec = '';
+  let upcomingLec = "";
 
   if (date.getDay() > 4) {
     upcomingLec = `Next Monday 18:00`;
   } else if (date.getDay() < 5 && date.getHours() >= 18) {
-    upcomingLec = 'Tomorrow 18:00';
+    upcomingLec = "Tomorrow 18:00";
   } else if (date.getHours() < 18) {
-    upcomingLec = 'Today 18:00';
+    upcomingLec = "Today 18:00";
   }
 
   useEffect(() => {
@@ -55,55 +55,47 @@ function Home() {
   ) {
     disabled = false;
     return (
-      <>
-        <Section>
-          <S.Wrapper>
-            <Hero date={date} disabled={disabled} />
-          </S.Wrapper>
-        </Section>
-        <Section>
-          {error && <S.ErrorText>Already Registered today!</S.ErrorText>}
-          <form
-            onSubmit={(e) => {
+      <Section>
+        {error && <S.ErrorText>Already Registered today!</S.ErrorText>}
+        <S.Wrapper>
+          <Hero date={date} disabled={disabled} />
+        </S.Wrapper>
+
+        <S.Wrapper>
+          <Button
+            className="class"
+            handleClick={(e) => {
               e.preventDefault();
-              console.log(formValue);
               sendAttendency(history, setError, formValue);
             }}
           >
-            <S.FlexDiv>
-              {students ? (
-                students.map((student) => (
-                  <S.Label htmlFor={student.id} key={student.id}>
-                    <S.Input
-                      type="radio"
-                      name="student"
-                      id={student.id}
-                      value={student.id}
-                    />
-                    <StudentCard
-                      name={student.name}
-                      surname={student.surname}
-                      image={student.image}
-                      email={student.email}
-                      handleClick={(e) => setFormValue(student.id)}
-                    />
-                  </S.Label>
-                ))
-              ) : (
-                <Loading />
-              )}
-            </S.FlexDiv>
-            <S.Wrapper>
-              <Button type="submit">
-                {formValue
-                  ? students.filter((student) => student.id === formValue)[0]
-                      .name + ', confirm your attendance'
-                  : 'Regsiter attendance'}
-              </Button>
-            </S.Wrapper>
-          </form>
-        </Section>
-      </>
+            {formValue
+              ? students.filter((student) => student.id === formValue)[0].name +
+                ", confirm your attendance"
+              : "Regsiter attendance"}
+          </Button>
+        </S.Wrapper>
+
+        <S.FlexDiv>
+          {students ? (
+            students.map((student) => (
+              <StudentCard
+                className="class"
+                key={student.id}
+                name={student.name}
+                surname={student.surname}
+                image={student.image}
+                email={student.email}
+                handleClick={(e) => {
+                  setFormValue(student.id);
+                }}
+              />
+            ))
+          ) : (
+            <Loading />
+          )}
+        </S.FlexDiv>
+      </Section>
     );
   } else
     return (
