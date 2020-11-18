@@ -62,6 +62,7 @@ export const StudentWrap = styled.div`
 `;
 export const StudentOn = styled.span`
   color: green;
+  margin-right: 3px;
 `;
 export const StudentOff = styled.span`
   color: red;
