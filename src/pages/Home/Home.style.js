@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const FlexDiv = styled.div`
   display: flex;
@@ -17,4 +17,12 @@ const Input = styled.input`
   display: none;
 `;
 
+export const ErrorText = styled.h3`
+  color: #fff;
+  background-color: #ed7a6d;
+  margin: 10px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 1em;
+`;
 export { Label, Input };
