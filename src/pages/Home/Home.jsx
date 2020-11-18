@@ -49,7 +49,9 @@ function Home() {
     return (
       <>
         <Section>
-          <Hero date={date} disabled={disabled} />
+          <S.Wrapper>
+            <Hero date={date} disabled={disabled} />
+          </S.Wrapper>
         </Section>
         <Section>
           <S.FlexDiv>
@@ -77,11 +79,11 @@ function Home() {
     );
   } else
     return (
-      <>
-        <Section>
+      <Section>
+        <S.Wrapper>
           <Hero disabled={disabled} lectureDate={upcomingLec} />
-        </Section>
-      </>
+        </S.Wrapper>
+      </Section>
     );
 }
 
