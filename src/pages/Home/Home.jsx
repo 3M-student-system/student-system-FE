@@ -35,7 +35,8 @@ function Home() {
       .then((res) => res.json())
       .then((data) => {
         setStudents(data);
-      });
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   if (
