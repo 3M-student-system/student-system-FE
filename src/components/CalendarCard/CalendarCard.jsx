@@ -4,7 +4,6 @@ import * as S from "./CalendarCard.style";
 function CalendarCard({ day, handlechange }) {
   return (
     <S.Wrapper onClick={handlechange}>
-      <S.ColorBlock />
       <S.Data>
         <S.Day>{day}</S.Day>
         <span>18:00</span>
