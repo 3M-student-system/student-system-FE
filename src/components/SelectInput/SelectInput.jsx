@@ -10,8 +10,8 @@ function SelectInput({ options, handleChange }) {
           // .map((car) => car.brand)
           // .filter((v, i, a) => a.indexOf(v) === i)
           .map((item) => (
-            <option key={item} value={item}>
-              {item}
+            <option key={item.value} value={item.value}>
+              {item.name}
             </option>
           ))}
     </S.Select>
