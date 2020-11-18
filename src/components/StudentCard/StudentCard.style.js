@@ -1,13 +1,13 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Card = styled.div`
-  width: calc(25% - 20px);
+  width: 100%;
   padding: 1em;
   border-radius: 10px;
   height: 300px;
   box-sizing: border-box;
   background-color: #ffffff;
-  margin: 10px;
+  margin: 0;
   &:hover {
     cursor: pointer;
     -webkit-box-shadow: 0px 0px 8px 3px
