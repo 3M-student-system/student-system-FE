@@ -1,14 +1,20 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-  width: 100%;
+  width: calc(25% - 20px);
   padding: 1em;
   border-radius: 10px;
   height: 300px;
   box-sizing: border-box;
   background-color: #ffffff;
-  margin: 0;
+  margin: 10px;
   &:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 8px 3px
+      ${(props) => props.theme.primaryHover.color};
+    box-shadow: 0px 0px 8px 3px ${(props) => props.theme.primaryHover.color};
+  }
+  &:active {
     cursor: pointer;
     -webkit-box-shadow: 0px 0px 8px 3px
       ${(props) => props.theme.primaryHover.color};
