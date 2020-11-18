@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
-
+  min-width: 250px;
   max-width: 100%;
   padding: 15px;
   margin: 10px;
@@ -19,17 +19,15 @@ export const Wrapper = styled.div`
     width: calc(50% -10px);
   }
 `;
-export const ColorBlock = styled.div`
-  background-color: #ffc857;
-  width: 20px;
-  margin: -15px;
-  border-radius: 5px 0 0 5px;
-`;
 export const Data = styled.div`
+  background-color: #ffc857;
   display: flex;
   flex-direction: column;
-  margin-left: 25px;
+  margin: -15px;
+  border-radius: 5px 0 0 5px;
+  padding: 10px;
   justify-content: space-between;
+  color: #412234;
 `;
 export const Day = styled.span`
   width: 100%;
@@ -55,7 +53,8 @@ export const RightCont = styled.div`
   justify-content: space-around;
 `;
 export const Percent = styled.span`
-  font-size: 1.3em;
+  font-size: 1.1em;
+  font-weight: bold;
 `;
 export const StudentWrap = styled.div`
   display: flex;
