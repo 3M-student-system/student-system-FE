@@ -11,7 +11,7 @@ function HeaderBase({ color }) {
           <S.StyledLink color={color} to="/">
             Register
           </S.StyledLink>
-          <S.StyledLink color={color} to="/about">
+          <S.StyledLink color={color} to="/view">
             View
           </S.StyledLink>
         </S.NavBar>
