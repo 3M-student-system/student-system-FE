@@ -9,7 +9,7 @@ function sendAttendency(history, studentId) {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(studentId),
+    body: JSON.stringify({ studentId: studentId }),
   })
     .then(() => history.push('/view'))
     .catch((err) => console.log(err));
@@ -20,6 +20,15 @@ function Home() {
   const date = new Date();
   let disabled = true;
   const history = useHistory();
+  let upcomingLec = '';
+
+  if (date.getDay() > 4) {
+    upcomingLec = `Next Monday 18:00`;
+  } else if (date.getDay() < 5 && date.getHours() >= 18) {
+    upcomingLec = 'Tomorrow 18:00';
+  } else if (date.getHours() < 18) {
+    upcomingLec = 'Today 18:00';
+  }
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_SERVER_URL}/students`)
@@ -30,11 +39,10 @@ function Home() {
   }, []);
 
   if (
-    true
-    // date.getHours() >= 18 &&
-    // date.getHours() < 22 &&
-    // date.getDay() >= 1 &&
-    // date.getDay() < 5
+    date.getHours() >= 18 &&
+    date.getHours() < 22 &&
+    date.getDay() >= 1 &&
+    date.getDay() < 5
   ) {
     disabled = false;
     return (
@@ -70,7 +78,7 @@ function Home() {
     return (
       <>
         <Section>
-          <Hero disabled={disabled} />
+          <Hero disabled={disabled} lectureDate={upcomingLec} />
         </Section>
       </>
     );
