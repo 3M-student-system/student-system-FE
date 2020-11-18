@@ -1,16 +1,16 @@
 import React from "react";
 import { CalendarCard } from "../../components";
-import * as S from "./CalendarTable.style.js";
+import * as S from "./CalendarTable.style";
 
 function CalendarTable({ days, month }) {
   return (
-    <S.TableWrapper>
-      <h1>{month}</h1>
+    <S.TableCont>
+      <S.Month>{month}</S.Month>
 
       {days.map((item) => (
         <CalendarCard day={item.day} />
       ))}
-    </S.TableWrapper>
+    </S.TableCont>
   );
 }
 
