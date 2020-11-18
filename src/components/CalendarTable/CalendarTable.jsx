@@ -13,7 +13,7 @@ function CalendarTable({ days, month }) {
           day={day.date.split("-")[2]}
           month={day.date.split("-")[1]}
           year={day.date.split("-")[0]}
-          attendance={day.attendance}
+          dayData={day}
         />
       ))}
     </S.TableCont>

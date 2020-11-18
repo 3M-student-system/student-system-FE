@@ -10,8 +10,10 @@ export const InputWrapp = styled.div`
   width: 100%;
   max-width: 300px;
   margin: 10px;
+  display: flex;
 `;
 
 export const InputLabel = styled.label`
   font-weight: bold;
+  padding: 10px;
 `;

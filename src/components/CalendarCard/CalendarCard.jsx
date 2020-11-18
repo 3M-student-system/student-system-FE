@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./CalendarCard.style";
 
-function CalendarCard({ day, handlechange }) {
+function CalendarCard({ day, dayData, handlechange }) {
   return (
     <S.Wrapper onClick={handlechange}>
       <S.Data>
@@ -14,10 +14,10 @@ function CalendarCard({ day, handlechange }) {
         <S.Subtitle>Lecture subtitle</S.Subtitle>
       </S.MidCont>
       <S.RightCont>
-        <S.Percent>91%</S.Percent>
+        <S.Percent>{dayData.attendedPercent}%</S.Percent>
         <S.StudentWrap>
-          <S.StudentOn>10</S.StudentOn>
-          <S.StudentOff>1</S.StudentOff>
+          <S.StudentOn>{dayData.attendedCount}</S.StudentOn>
+          <S.StudentOff>{dayData.notAttendedCount}</S.StudentOff>
         </S.StudentWrap>
       </S.RightCont>
     </S.Wrapper>
