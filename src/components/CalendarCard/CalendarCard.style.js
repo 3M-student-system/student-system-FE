@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   min-width: 250px;
   padding: 15px;
   margin: 10px;
-  background-color: white;
+  background-color: ${(props) => props.theme.secondary.background};
   //border: 1px solid black;
   box-sizing: border-box;
   border-radius: 5px;
@@ -22,14 +22,14 @@ export const Wrapper = styled.div`
   }
 `;
 export const Data = styled.div`
-  background-color: #ffc857;
+  background-color: ${(props) => props.theme.primaryHover.background};
   display: flex;
   flex-direction: column;
   margin: -15px;
   border-radius: 5px 0 0 5px;
   padding: 10px;
   justify-content: space-between;
-  color: #412234;
+  color: ${(props) => props.theme.primary.color};
 `;
 export const Day = styled.span`
   width: 100%;
