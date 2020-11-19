@@ -64,7 +64,7 @@ function Home() {
           </S.Wrapper>
         )}
         <S.Wrapper>
-          <Hero date={date} />
+          <Hero color="primary" date={date} />
         </S.Wrapper>
 
         <S.Wrapper>
@@ -110,7 +110,7 @@ function Home() {
   } else
     return (
       <Section>
-        <Hero disabled lectureDate={upcomingLec} />
+        <Hero color="primary" disabled lectureDate={upcomingLec} />
       </Section>
     );
 }

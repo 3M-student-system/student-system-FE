@@ -4,18 +4,12 @@ import { Link } from "react-router-dom";
 export const Header = styled.header`
   text-align: center;
   text-transform: uppercase;
-  background: ${(props) =>
-    props.color === "primary"
-      ? props.theme.primary.background
-      : props.theme.secondary.background};
 `;
 
 export const HeaderWrapper = styled.div`
   padding: 0 1em;
-  @media only screen and (min-width: 1024px) {
-    max-width: 992px;
-    margin: 0 auto;
-  } ;
+  max-width: 920px;
+  margin: 0 auto;
 `;
 
 export const Title = styled.h1`
@@ -31,6 +25,7 @@ export const Title = styled.h1`
 export const StyledLink = styled(Link)`
   display: block;
   width: 100%;
+  border-radius: 10px;
   line-height: 50px;
   font-size: 1.5em;
   text-decoration: none;
@@ -38,6 +33,13 @@ export const StyledLink = styled(Link)`
     props.color === "primary"
       ? props.theme.primary.color
       : props.theme.secondary.color};
+  background: ${(props) =>
+    props.color === "primary"
+      ? props.theme.primary.background
+      : props.theme.secondary.background};
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
   &:hover {
     color: ${(props) =>
       props.color === "primary"
@@ -51,6 +53,10 @@ export const StyledLink = styled(Link)`
 
   @media only screen and (min-width: 768px) {
     display: inline-block;
-    width: 50%;
+    width: calc(33.33% - 1rem);
+    &:not(:last-child) {
+      margin-bottom: 0;
+      margin-right: 1.5rem;
+    }
   } ;
 `;
