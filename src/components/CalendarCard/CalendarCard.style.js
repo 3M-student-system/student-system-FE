@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: flex;
   min-width: 250px;
-  max-width: 100%;
   padding: 15px;
   margin: 10px;
   background-color: white;
@@ -12,11 +11,14 @@ export const Wrapper = styled.div`
   border-radius: 5px;
   justify-content: space-between;
 
-  @media (min-width: 980px) {
-    width: calc(25% - 20px);
+  @media (max-width: 920px) {
+    width: calc(50% - 20px);
   }
-  @media (min-width: 650px) {
-    width: calc(50% -10px);
+  @media (max-width: 580px) {
+    width: calc(100% - 20px);
+  }
+  @media (min-width: 920px) {
+    width: calc(25% -20px);
   }
 `;
 export const Data = styled.div`

@@ -14,4 +14,7 @@ export const Month = styled.h1`
 `;
 export const ListCardCont = styled.div`
   position: absolute;
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
