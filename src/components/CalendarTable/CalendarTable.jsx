@@ -9,6 +9,7 @@ function CalendarTable({ days, month }) {
   return (
     <S.TableCont>
       <S.Month>{month ? month.name : "All"}</S.Month>
+
       {clickedDay && (
         <S.ListCardCont>
           <StudentListCard
@@ -18,6 +19,7 @@ function CalendarTable({ days, month }) {
           />
         </S.ListCardCont>
       )}
+
       {(days || []).map((day) => (
         <CalendarCard
           key={day.date}

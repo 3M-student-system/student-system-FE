@@ -9,6 +9,7 @@ export const ListWrapp = styled.div`
   padding: 20px;
   border-radius: 5px;
   box-sizing: border-box;
+  text-align: center;
   box-shadow: 5px 5px 15px 5px #919191;
 `;
 export const Head = styled.div`
@@ -18,16 +19,19 @@ export const Head = styled.div`
   padding: 10px 0;
   justify-content: space-between;
 `;
-export const H3 = styled.h3`
+export const H3 = styled.h1`
   margin: 5px 0;
 `;
 export const H4 = styled.h4`
   margin: 3px;
 `;
 export const StyledButton = styled(Button)`
-  margin: 10px;
+  margin-top: 20px;
 `;
 export const Line = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+export const ButtonCont = styled.div`
+  margin-top: 15px;
 `;

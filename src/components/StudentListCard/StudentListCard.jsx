@@ -6,7 +6,6 @@ function StudentListCard({ dataofDay, listVisible, CloseList }) {
     <S.ListWrapp listVisible={listVisible}>
       <S.Head>
         <S.H3>{dataofDay.date}</S.H3>
-        <S.StyledButton handleClick={CloseList}>Close</S.StyledButton>
       </S.Head>
       {dataofDay.studentList.map((student) => {
         return (
@@ -18,6 +17,9 @@ function StudentListCard({ dataofDay, listVisible, CloseList }) {
           </S.Line>
         );
       })}
+      <S.ButtonCont>
+        <S.StyledButton handleClick={CloseList}>Close</S.StyledButton>
+      </S.ButtonCont>
     </S.ListWrapp>
   );
 }
