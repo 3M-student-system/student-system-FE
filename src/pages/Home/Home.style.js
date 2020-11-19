@@ -5,13 +5,13 @@ export const FlexDiv = styled.div`
   flex-wrap: wrap;
 `;
 export const Wrapper = styled.div`
-  padding: 10px;
+  padding-bottom: 1.5rem;
 `;
 
 export const ErrorText = styled.h3`
   color: #fff;
   background-color: #ed7a6d;
-  margin: 10px;
+  margin: 0;
   text-align: center;
   border-radius: 10px;
   padding: 1em;

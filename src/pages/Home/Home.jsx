@@ -26,7 +26,6 @@ function Home() {
   const [formValue, setFormValue] = useState();
   const [error, setError] = useState(false);
   const date = new Date();
-  let disabled = true;
   const history = useHistory();
   let upcomingLec = "";
 
@@ -53,17 +52,19 @@ function Home() {
     date.getDay() >= 1 &&
     date.getDay() < 5
   ) {
-    disabled = false;
     return (
       <Section>
-        {error && <S.ErrorText>Already Registered today!</S.ErrorText>}
+        {error && (
+          <S.Wrapper>
+            <S.ErrorText>Already registered today!</S.ErrorText>
+          </S.Wrapper>
+        )}
         <S.Wrapper>
-          <Hero date={date} disabled={disabled} />
+          <Hero date={date} />
         </S.Wrapper>
 
         <S.Wrapper>
           <Button
-            className="class"
             handleClick={(e) => {
               e.preventDefault();
               sendAttendency(history, setError, formValue);
@@ -80,7 +81,6 @@ function Home() {
           {students ? (
             students.map((student) => (
               <StudentCard
-                className="class"
                 key={student.id}
                 name={student.name}
                 surname={student.surname}
@@ -100,9 +100,7 @@ function Home() {
   } else
     return (
       <Section>
-        <S.Wrapper>
-          <Hero disabled={disabled} lectureDate={upcomingLec} />
-        </S.Wrapper>
+        <Hero disabled lectureDate={upcomingLec} />
       </Section>
     );
 }

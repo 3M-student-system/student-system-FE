@@ -7,5 +7,5 @@ export const Container = styled.div`
 
 export const Section = styled.section`
   background: ${(props) => props.theme.primary.background};
-  padding: 1em;
+  padding: 1.5em 1em;
 `;
