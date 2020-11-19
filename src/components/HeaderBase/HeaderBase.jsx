@@ -12,7 +12,7 @@ function HeaderBase({ color }) {
         <S.StyledLink color={color} to="/view">
           View Attendence
         </S.StyledLink>
-        <S.StyledLink color={color} to="/add">
+        <S.StyledLink color={color} to="/add-student">
           Add Student
         </S.StyledLink>
       </S.HeaderWrapper>
