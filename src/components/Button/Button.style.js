@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
+  width: 100%;
   border: none;
   border-radius: 10px;
   padding: 1rem 2rem;
@@ -27,5 +28,8 @@ export const Button = styled.button`
   }
   &:focus {
     outline: none;
+  }
+  @media only screen and (min-width: 576px) {
+    width: auto;
   }
 `;

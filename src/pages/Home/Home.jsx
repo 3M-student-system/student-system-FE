@@ -21,6 +21,10 @@ function sendAttendency(history, setError, studentId) {
     .catch((err) => console.log(err));
 }
 
+function scrollToButton() {
+  document.documentElement.scrollTop = 0;
+}
+
 function Home() {
   const [students, setStudents] = useState();
   const [formValue, setFormValue] = useState();
@@ -64,18 +68,22 @@ function Home() {
         </S.Wrapper>
 
         <S.Wrapper>
-          <Button
-            handleClick={(e) => {
-              e.preventDefault();
-              sendAttendency(history, setError, formValue);
-              setFormValue("");
-            }}
-          >
-            {formValue
-              ? students.filter((student) => student.id === formValue)[0].name +
-                ", CLICK to confirm your attendance"
-              : "Regsiter attendance"}
-          </Button>
+          <S.FlexDiv>
+            {students && (
+              <Button
+                handleClick={(e) => {
+                  e.preventDefault();
+                  sendAttendency(history, setError, formValue);
+                  setFormValue("");
+                }}
+              >
+                {formValue
+                  ? students.filter((student) => student.id === formValue)[0]
+                      .name + ", CLICK to confirm your attendance"
+                  : "Regsiter attendance"}
+              </Button>
+            )}
+          </S.FlexDiv>
         </S.Wrapper>
 
         <S.FlexDiv>
@@ -89,6 +97,7 @@ function Home() {
                 email={student.email}
                 handleClick={(e) => {
                   setFormValue(student.id);
+                  scrollToButton();
                 }}
               />
             ))
