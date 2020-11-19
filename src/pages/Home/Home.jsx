@@ -68,11 +68,12 @@ function Home() {
             handleClick={(e) => {
               e.preventDefault();
               sendAttendency(history, setError, formValue);
+              setFormValue("");
             }}
           >
             {formValue
               ? students.filter((student) => student.id === formValue)[0].name +
-                ", confirm your attendance"
+                ", CLICK to confirm your attendance"
               : "Regsiter attendance"}
           </Button>
         </S.Wrapper>
