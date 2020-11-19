@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
-  max-width: 1080px;
+  max-width: 992px;
   margin: 0 auto;
 `;
 
 export const Section = styled.section`
   background: ${(props) => props.theme.primary.background};
-  padding: 1em 2em;
+  padding: 1.5em 1em;
 `;
