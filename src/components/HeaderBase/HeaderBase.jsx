@@ -10,7 +10,10 @@ function HeaderBase({ color }) {
           Register
         </S.StyledLink>
         <S.StyledLink color={color} to="/view">
-          View
+          View Attendence
+        </S.StyledLink>
+        <S.StyledLink color={color} to="/add">
+          Add Student
         </S.StyledLink>
       </S.HeaderWrapper>
     </S.Header>
