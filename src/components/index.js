@@ -5,5 +5,6 @@ export { default as Loading } from "./Loading/Loading";
 export { default as CalendarCard } from "./CalendarCard/CalendarCard";
 export { default as CalendarTable } from "./CalendarTable/CalendarTable";
 export { default as StudentCard } from "./StudentCard/StudentCard";
+export { default as StudentListCard } from "./StudentListCard/StudentListCard";
 export { default as Hero } from "./Hero/Hero";
 export { default as SelectInput } from "./SelectInput/SelectInput";

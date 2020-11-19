@@ -1,9 +1,9 @@
 import React from "react";
 import * as S from "./CalendarCard.style";
 
-function CalendarCard({ day, dayData, handlechange }) {
+function CalendarCard({ day, dayData, handleClick }) {
   return (
-    <S.Wrapper onClick={handlechange}>
+    <S.Wrapper onClick={handleClick}>
       <S.Data>
         <S.Day>{day}</S.Day>
         <span>18:00</span>
