@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   Section,
   StudentCard,
@@ -6,31 +6,33 @@ import {
   Loading,
   Button,
   Notification,
-} from '../../components';
-import * as S from './Home.style';
-import { useHistory } from 'react-router-dom';
+  InputField,
+} from "../../components";
+import * as S from "./Home.style";
+import { useHistory } from "react-router-dom";
 
 function sendAttendency(
   history,
   setError,
   setErrorMessage,
   setNotifType,
-  studentId
+  studentId,
+  password
 ) {
   fetch(`${process.env.REACT_APP_SERVER_URL}/add-attendency`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify({ studentId: studentId }),
+    body: JSON.stringify({ studentId: studentId, password: password }),
   })
     .then((data) => {
       if (data.status === 400) {
-        setNotifType('error');
-        setErrorMessage('Already Registered today!');
+        setNotifType("error");
+        setErrorMessage("Already Registered today!");
         setError(true);
       } else {
-        history.push('/view');
+        history.push("/view");
       }
     })
     .catch((err) => console.log(err));
@@ -43,19 +45,20 @@ function scrollToButton() {
 function Home() {
   const [students, setStudents] = useState();
   const [formValue, setFormValue] = useState();
+  const [password, setPassword] = useState();
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
   const [notifType, setNotifType] = useState();
   const date = new Date();
   const history = useHistory();
-  let upcomingLec = '';
+  let upcomingLec = "";
 
   if (date.getDay() > 4) {
     upcomingLec = `Next Monday 18:00`;
   } else if (date.getDay() < 5 && date.getHours() >= 18) {
-    upcomingLec = 'Tomorrow 18:00';
+    upcomingLec = "Tomorrow 18:00";
   } else if (date.getHours() < 18) {
-    upcomingLec = 'Today 18:00';
+    upcomingLec = "Today 18:00";
   }
 
   useEffect(() => {
@@ -95,19 +98,27 @@ function Home() {
                     setError,
                     setErrorMessage,
                     setNotifType,
-                    formValue
+                    formValue,
+                    password
                   );
-                  setFormValue('');
+                  console.log(formValue + password);
+                  setFormValue("");
                 }}
               >
                 {formValue
                   ? students.filter((student) => student.id === formValue)[0]
-                      .name + ', CLICK to confirm your attendance'
-                  : 'Regsiter attendance'}
+                      .name + ", CLICK to confirm your attendance"
+                  : "Regsiter attendance"}
               </Button>
             )}
           </S.FlexDiv>
         </S.Wrapper>
+        <InputField
+          handleChange={(e) => {
+            e.preventDefault();
+            setPassword(e.target.value);
+          }}
+        />
 
         <S.FlexDiv>
           {students ? (
