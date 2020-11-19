@@ -2,8 +2,8 @@ import React from "react";
 import * as S from "./Hero.style";
 
 function Hero({ color, title, disabled, lectureDate, date }) {
-  title = title || "Front-end course";
-
+  title = title || "Lecture Title";
+  
   const status = disabled
     ? "Registration disabled"
     : "Please register your attendance";
