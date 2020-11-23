@@ -1,9 +1,9 @@
 import React from 'react';
 import * as S from './StudentCard.style';
-function StudentCard({ image, name, surname, email, handleClick }) {
+function StudentCard({ image, name, surname, email, handleClick, active }) {
   const fullName = name + ' ' + surname;
   return (
-    <S.Card onClick={handleClick}>
+    <S.Card onClick={handleClick} active={active}>
       <S.ImgDiv>
         <S.Image src={image} alt={fullName} />
       </S.ImgDiv>

@@ -11,36 +11,42 @@ import {
 import * as S from './Home.style';
 import { useHistory } from 'react-router-dom';
 
-function sendAttendency(
+function sendAttendance(
   history,
   setError,
   setErrorMessage,
   setNotifType,
   studentId,
-  password
+  password,
+  notifType
 ) {
+  setNotifType('');
+  notifType = '';
+  setError(false);
   if (password) {
-    fetch(`${process.env.REACT_APP_SERVER_URL}/add-attendency`, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/add-attendance`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ studentId: studentId, password: password }),
     })
+      .then((res) => {
+        if (res.status >= 400) {
+          setNotifType('error');
+          notifType = 'error';
+        }
+        return res.json();
+      })
       .then((data) => {
-        if (data.status === 400) {
-          setNotifType('error');
-          setErrorMessage('Already Registered today!');
-          setError(true);
-        } else if (data.status === 401) {
-          setNotifType('error');
-          setErrorMessage('Wrong Password!');
+        if (notifType === 'error') {
+          setErrorMessage(data.message);
           setError(true);
         } else {
           history.push('/view');
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err.message));
   } else {
     setNotifType('error');
     setErrorMessage('Please enter the password!');
@@ -59,6 +65,7 @@ function Home() {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
   const [notifType, setNotifType] = useState();
+  const [selectedId, setId] = useState();
   const date = new Date();
   const history = useHistory();
   let upcomingLec = '';
@@ -103,13 +110,14 @@ function Home() {
               <Button
                 handleClick={(e) => {
                   e.preventDefault();
-                  sendAttendency(
+                  sendAttendance(
                     history,
                     setError,
                     setErrorMessage,
                     setNotifType,
                     formValue,
-                    password
+                    password,
+                    notifType
                   );
                   console.log(formValue + password);
                   setFormValue('');
@@ -127,6 +135,7 @@ function Home() {
           type="password"
           label="Password"
           name="password"
+          inputId="pass"
           handleChange={(e) => {
             e.preventDefault();
             setPassword(e.target.value);
@@ -138,6 +147,7 @@ function Home() {
             students.map((student) => (
               <StudentCard
                 key={student.id}
+                active={selectedId === student.id}
                 name={student.name}
                 surname={student.surname}
                 image={student.image}
@@ -145,6 +155,7 @@ function Home() {
                 handleClick={(e) => {
                   setFormValue(student.id);
                   scrollToButton();
+                  setId(student.id);
                 }}
               />
             ))
