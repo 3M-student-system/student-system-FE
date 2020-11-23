@@ -18,3 +18,8 @@ export const ListCardCont = styled.div`
     width: 100%;
   }
 `;
+export const CardWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+`;

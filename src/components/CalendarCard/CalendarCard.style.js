@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
-  min-width: 250px;
+  min-width: 220px;
   padding: 15px;
-  margin: 10px;
+  margin: 5px;
   background-color: ${(props) => props.theme.secondary.background};
   //border: 1px solid black;
   box-sizing: border-box;
@@ -34,7 +34,9 @@ export const Data = styled.div`
 export const Day = styled.span`
   width: 100%;
   font-size: 2em;
-  font-weight: bold;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 2px 2px 0px #7a7a7a;
 `;
 export const MidCont = styled.div`
   display: flex;
@@ -44,18 +46,20 @@ export const MidCont = styled.div`
 `;
 export const Title = styled.span`
   font-size: 1.2em;
+  font-weight: 600;
 `;
-export const Subtitle = styled.span`
-  font-size: 1em;
-`;
-export const RightCont = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-left: 5px;
-  justify-content: space-around;
-`;
+// export const Subtitle = styled.span`
+//   font-size: 1em;
+// `;
+// export const RightCont = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   margin-left: 5px;
+//   justify-content: space-around;
+// `;
 export const Percent = styled.span`
-  font-size: 1.1em;
+  font-size: 1.2em;
+  justify-self: center;
   font-weight: bold;
 `;
 export const StudentWrap = styled.div`

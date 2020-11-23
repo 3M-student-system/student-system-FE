@@ -11,6 +11,9 @@ export const InputWrapp = styled.div`
   max-width: 300px;
   margin: 10px;
   display: flex;
+  @media (max-width: 600px) {
+    max-width: 100%;
+  }
 `;
 
 export const InputLabel = styled.label`

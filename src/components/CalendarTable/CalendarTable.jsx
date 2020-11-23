@@ -19,21 +19,22 @@ function CalendarTable({ days, month }) {
           />
         </S.ListCardCont>
       )}
-
-      {(days || []).map((day) => (
-        <CalendarCard
-          key={day.date}
-          day={day.date.split("-")[2]}
-          month={day.date.split("-")[1]}
-          year={day.date.split("-")[0]}
-          dayData={day}
-          handleClick={() => {
-            setClickedDay(day);
-            setOnOff(!onOff);
-            //console.log(day);
-          }}
-        />
-      ))}
+      <S.CardWrapper>
+        {(days || []).map((day) => (
+          <CalendarCard
+            key={day.date}
+            day={day.date.split("-")[2]}
+            month={day.date.split("-")[1]}
+            year={day.date.split("-")[0]}
+            dayData={day}
+            handleClick={() => {
+              setClickedDay(day);
+              setOnOff(!onOff);
+              //console.log(day);
+            }}
+          />
+        ))}
+      </S.CardWrapper>
     </S.TableCont>
   );
 }
