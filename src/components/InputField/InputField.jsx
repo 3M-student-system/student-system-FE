@@ -1,15 +1,22 @@
 import React from 'react';
 import * as S from './InputField.style';
 
-function InputField({ label, name, handleChange, defaultValue, type }) {
+function InputField({
+  label,
+  name,
+  handleChange,
+  defaultValue,
+  type,
+  inputId,
+}) {
   switch (type) {
     case 'longtext':
       return (
         <S.InputDiv>
-          <S.TextArea id="textarea" required onChange={handleChange}>
+          <S.TextArea id={inputId} required onChange={handleChange}>
             {defaultValue}
           </S.TextArea>
-          <S.Label htmlFor="textarea">{label}</S.Label>
+          <S.Label htmlFor={inputId}>{label}</S.Label>
         </S.InputDiv>
       );
     case 'email':
@@ -17,12 +24,12 @@ function InputField({ label, name, handleChange, defaultValue, type }) {
         <S.InputDiv>
           <S.InputField
             onChange={handleChange}
-            id="input"
+            id={inputId}
             name={name}
             type="email"
             required
           />
-          <S.Label htmlFor="input">{label}</S.Label>
+          <S.Label htmlFor={inputId}>{label}</S.Label>
         </S.InputDiv>
       );
     case 'password':
@@ -30,12 +37,12 @@ function InputField({ label, name, handleChange, defaultValue, type }) {
         <S.InputDiv>
           <S.InputField
             onChange={handleChange}
-            id="input"
+            id={inputId}
             name={name}
             type="password"
             required
           />
-          <S.Label htmlFor="input">{label}</S.Label>
+          <S.Label htmlFor={inputId}>{label}</S.Label>
         </S.InputDiv>
       );
     default:
@@ -43,12 +50,12 @@ function InputField({ label, name, handleChange, defaultValue, type }) {
         <S.InputDiv>
           <S.InputField
             onChange={handleChange}
-            id="input"
+            id={inputId}
             name={name}
             type="text"
             required
           />
-          <S.Label htmlFor="input">{label}</S.Label>
+          <S.Label htmlFor={inputId}>{label}</S.Label>
         </S.InputDiv>
       );
   }

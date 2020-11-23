@@ -1,66 +1,69 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Card = styled.div`
-         box-sizing: border-box;
-         width: 100%;
-         min-height: 120px;
-         padding: 1rem;
-         border-radius: 10px;
-         display: flex;
-         align-items: center;
-         margin-bottom: 1.5rem;
-         background: ${(props) =>
-           props.color === "primary"
-             ? props.theme.primary.background
-             : props.theme.secondary.background};
-         &:hover {
-           cursor: pointer;
-           -webkit-box-shadow: 0px 0px 8px 3px
-             ${(props) => props.theme.primaryHover.background};
-           box-shadow: 0px 0px 8px 3px
-             ${(props) => props.theme.primaryHover.background};
-         }
-         &:active {
-           cursor: pointer;
-           -webkit-box-shadow: 0px 0px 8px 3px
-             ${(props) => props.theme.primaryHover.color};
-           box-shadow: 0px 0px 8px 3px
-             ${(props) => props.theme.primaryHover.color};
-         }
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 120px;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  box-shadow: ${(props) =>
+    props.active === true
+      ? '0px 0px 8px 3px ' + props.theme.primaryHover.background
+      : 'none'};
+  background: ${(props) =>
+    props.color === 'primary'
+      ? props.theme.primary.background
+      : props.theme.secondary.background};
+  &:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 8px 3px
+      ${(props) => props.theme.primaryHover.background};
+    box-shadow: 0px 0px 8px 3px
+      ${(props) => props.theme.primaryHover.background};
+  }
+  &:active {
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 8px 3px
+      ${(props) => props.theme.primaryHover.color};
+    box-shadow: 0px 0px 8px 3px ${(props) => props.theme.primaryHover.color};
+  }
 
-         @media only screen and (min-width: 576px) {
-           display: block;
-           margin-right: 10px;
-           margin-left: 10px;
-         }
-         @media only screen and (min-width: 576px) and (max-width: 767px) {
-           width: calc(50% - 10px);
-           &:nth-child(odd) {
-             margin-left: 0;
-           }
-           &:nth-child(even) {
-             margin-right: 0;
-           }
-         }
-         @media only screen and (min-width: 768px) and (max-width: 951px) {
-           width: calc(33.33% - 13.33px);
-           &:nth-child(3n + 1) {
-             margin-left: 0;
-           }
-           &:nth-child(3n) {
-             margin-right: 0;
-           }
-         }
-         @media only screen and (min-width: 952px) {
-           width: calc(25% - 15px);
-           &:nth-child(4n + 1) {
-             margin-left: 0px;
-           }
-           &:nth-child(4n) {
-             margin-right: 0px;
-           }
-         }
-       `;
+  @media only screen and (min-width: 576px) {
+    display: block;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    width: calc(50% - 10px);
+    &:nth-child(odd) {
+      margin-left: 0;
+    }
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 951px) {
+    width: calc(33.33% - 13.33px);
+    &:nth-child(3n + 1) {
+      margin-left: 0;
+    }
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+  @media only screen and (min-width: 952px) {
+    width: calc(25% - 15px);
+    &:nth-child(4n + 1) {
+      margin-left: 0px;
+    }
+    &:nth-child(4n) {
+      margin-right: 0px;
+    }
+  }
+`;
 
 export const ImgDiv = styled.div`
   display: none;

@@ -2,22 +2,14 @@ import styled from 'styled-components';
 
 export const InputDiv = styled.div`
   position: relative;
-  margin-bottom: 40px;
-  && input:focus ~ label {
+  margin: 40px 0;
+  && input:focus ~ label,
+  input:valid ~ label,
+  textarea:focus ~ label,
+  textarea:valid ~ label {
     top: -25px;
     font-size: 15px;
-  }
-  && input:valid ~ label {
-    top: -25px;
-    font-size: 15px;
-  }
-  && textarea:focus ~ label {
-    top: -25px;
-    font-size: 15px;
-  }
-  && textarea:valid ~ label {
-    top: -25px;
-    font-size: 15px;
+    opacity: 1;
   }
 `;
 export const Label = styled.label`
@@ -28,6 +20,8 @@ export const Label = styled.label`
   color: ${(props) => props.theme.primary.color};
   transition: all 0.5s ease-in-out;
   padding: 5px;
+  cursor: text;
+  opacity: 0.5;
 `;
 
 export const InputField = styled.input`

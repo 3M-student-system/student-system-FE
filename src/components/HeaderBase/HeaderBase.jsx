@@ -1,5 +1,5 @@
-import React from "react";
-import * as S from "./HeaderBase.style";
+import React from 'react';
+import * as S from './HeaderBase.style';
 
 function HeaderBase({ color }) {
   return (
@@ -10,7 +10,7 @@ function HeaderBase({ color }) {
           Register
         </S.StyledLink>
         <S.StyledLink color={color} to="/view">
-          View Attendence
+          View Attendance
         </S.StyledLink>
         <S.StyledLink color={color} to="/add-student">
           Add Student

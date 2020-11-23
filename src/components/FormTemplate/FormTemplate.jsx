@@ -19,22 +19,24 @@ function FormTemplate({ fields, callbackEndpoint, message }) {
             },
             body: JSON.stringify(fieldValues),
           })
-            .then((data) => {
-              if (data.status === 401) {
+            .then((res) => {
+              if (res.status >= 400) {
                 setNotifType('error');
-                setErrorMessage('Wrong Password!');
-                setError(true);
-              } else {
+              } else if (res.status === 201) {
                 setNotifType('success');
-                setErrorMessage('Successfully added!');
-                setError(true);
               }
+              return res.json();
+            })
+            .then((data) => {
+              setErrorMessage(data.message);
+              setError(true);
             })
             .catch((err) => console.log(err));
         }}
       >
         {fields.map((field) => (
           <InputField
+            inputId={field.name}
             key={field.name}
             name={field.name}
             type={field.type}
