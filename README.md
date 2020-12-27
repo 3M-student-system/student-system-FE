@@ -11,13 +11,13 @@
 
 ## :bulb: About The Project
 
- This is a CRUD-based Demo system, whose main purpose was to practice git version control as we were working in a team of 3 people on this project. 
- The system tracks the time and when the time comes when the course starts the forms to register becomes available for students. It is made that if a student wants to register for the course must enter the password which is checked in Back-End by some kind of algorithm that depends on current date.
+ This is a CRUD-based Demo system, whose main purpose was to practice git version control as we were working in a team of 3 people on this project. The system tracks the time and when the time comes when the course starts the forms to register becomes available for students. It is made that if a student wants to register for the course must enter the password which is checked in Back-End by some kind of algorithm that depends on current date. Also system send an email to the student after successful registration.
  
 ### :hammer: Built With
 
 - Used React.js with function components, hooks, context.
 - Node.js express for Back-End;
+- SendGrid for sending an emails;
 - MySQL Database;
 - Styled-Components for styling.
 
